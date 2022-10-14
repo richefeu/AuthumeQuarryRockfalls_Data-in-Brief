@@ -39,7 +39,7 @@ They are ASCII text files where the meaning of each column is described in the f
 | 5        | $L_2$ (m)                |
 | 5        | $L_3$ (m)                |
 
-In this dataset, the lengths $L_1$, $L_2$ and $L_3$ ($L_1 \ge L_2 \ge L_3$), which define the bounding parallelogram that fits closely the bouder, where measures by different operators (see photograph below). The accuraty of these lengths is thus estimated at ±10 cm. 
+In this dataset, the lengths $L_1$, $L_2$ and $L_3$ (with $L_1 \geq L_2 \geq L_3$), which define the bounding parallelogram that fits closely the bouder, where measures by different operators (see photograph below). The accuraty of these lengths is thus estimated at ±10 cm. 
 
 | ![](Photographs/boulder89.png) |
 |:--:|

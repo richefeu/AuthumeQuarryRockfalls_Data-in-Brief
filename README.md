@@ -1,4 +1,4 @@
-This repository holds the datasets related to the paper in the journal Data-in-Brief. They come from experimental and numerical large-scale rockfall tests that were performed in an open-mine pit in Authume (France), in the framework of the french national project [C2ROP](www.c2rop.fr).
+This repository holds the datasets related to the paper in the journal Data-in-Brief. They come from experimental and numerical large-scale rockfall tests that were performed in an open-mine pit in Authume (France), in the framework of the french national project [C2ROP](https://www.c2rop.fr/).
 
 It includes experimental endpoints for 89 rock blocks launched over two profiles: P1 (41 blocks) and P2 (49 blocks). To permit further analysis, the bounding box sizes of the boulders and their masses are also provided.
 
@@ -39,7 +39,7 @@ They are ASCII text files where the meaning of each column is described in the f
 | 5        | $L_2$ (m)                |
 | 5        | $L_3$ (m)                |
 
-In this dataset, the lengths $L_1$, $L_2$ and $L_3$ ($L_1 \geq L_2 \geq L_3$), which define the bounding parallelogram that fits closely the bouder, where measures by different operators (see photograph below). The accuraty of these lengths is thus estimated at ±10 cm. 
+In this dataset, the lengths $L_1$, $L_2$ and $L_3$ ($L_1 \ge L_2 \ge L_3$), which define the bounding parallelogram that fits closely the bouder, where measures by different operators (see photograph below). The accuraty of these lengths is thus estimated at ±10 cm. 
 
 | ![](Photographs/boulder89.png) |
 |:--:|

@@ -59,10 +59,10 @@ where L1, L2, and L3 (with L1 ≥ L2 ≥ L3) represent the approximate dimension
 
 Additional photographs are included to help future operators assess subjective qualities of the ground, such as softness or roughness. These photographs are essential for estimating dissipative parameters in rockfall models.
 
-![](Photographs/DropPointsPhotographs.png)
+> ![](Photographs/DropPointsPhotographs.png)
 > _Drop points and propagation profiles P1 and P2 in the Authume quarry (France)._
 
-![](Photographs/boulder89.png)
+> ![](Photographs/boulder89.png)
 > _Boulder numbered 89 during the experimental campaign. It was used in both experimental tests and simulations._
 
 
@@ -90,12 +90,12 @@ The three STL files correspond to different types of substrata:
 - **Gray zone**: Hard surfaces (vertical rock walls and horizontal sturdy soil)
 - **Red zone**: Rocky slope
 
-![](Figures/Terrain_zones_framework.png)
+> ![](Figures/Terrain_zones_framework.png)
 > _Trajectories over the reconstructed terrain for profiles P1 and P2. Trajectory colors represent block velocities (red to yellow)._
 
 The DTM was constructed using photogrammetry from aerial photographs taken by a drone (DJI Mavic Pro), provided by IMSRN company. A dense point cloud from C2ROP organization was used as reference for alignment and reconstruction of missed areas.
 
-<img src="Figures/Figure4a.png" alt="4a" width="24%" /> <img src="Figures/Figure4b.png" alt="4b" width="24%" /> <img src="Figures/Figure4c.png" alt="4c" width="24%" /> <img src="Figures/Figure4d.png" alt="4d" width="24%" />
+> <img src="Figures/Figure4a.png" alt="4a" width="24%" /> <img src="Figures/Figure4b.png" alt="4b" width="24%" /> <img src="Figures/Figure4c.png" alt="4c" width="24%" /> <img src="Figures/Figure4d.png" alt="4d" width="24%" />
 > _Processing of point clouds and mesh: (a) Dense point cloud from IMSRN, (b) Dense point cloud from C2ROP, (c) Alignment of acquisitions, (d) Reconstructed TIN mesh (0.5 m resolution)._
 
 
@@ -115,7 +115,7 @@ The reconstruction process involved:
 - Point cloud generation with Agisoft Metashape
 - Mesh reconstruction via Delaunay triangulation using MeshLab
 
-<img src="Figures/Figure6.png" alt="Shapes" width="100%" /> 
+> <img src="Figures/Figure6.png" alt="Shapes" width="100%" /> 
 > _Shapes of blocks reconstructed by photogrammetry._ 
 
 ### SIMULATED DATASETS

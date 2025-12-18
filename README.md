@@ -116,7 +116,7 @@ The reconstruction process involved:
 - Mesh reconstruction via Delaunay triangulation using MeshLab
 
 > <img src="Figures/Figure6.png" alt="Shapes" width="98%" />
-> _Shapes of blocks reconstructed by photogrammetry._ 
+> _Shapes of blocks reconstructed by photogrammetry._
 
 
 ### SIMULATED DATASETS

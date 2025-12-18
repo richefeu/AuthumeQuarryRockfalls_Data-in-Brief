@@ -1,164 +1,161 @@
-This repository holds the datasets related to the paper in the journal Data-in-Brief. They come from experimental and numerical large-scale rockfall tests that were performed in an open-mine pit in Authume (France), in the framework of the french national project [C2ROP](https://www.c2rop.fr/).
+# Experimental and simulated datasets for 3D dynamic modeling of rockfalls
 
-It includes experimental end-points for 89 rock blocks launched over two profiles: P1 (41 blocks) and P2 (49 blocks). To permit further analysis, the bounding box sizes of the boulders and their masses are also provided.
 
-Another data series were obtained by means of discrete element simulations (with the software Rockable) of isolated rockfall events, where both the blocks and the terrain topology were complex meshes. 
-Totally ignoring the details of the numerical modelling that was used, the trajectories are made available for each digital block in both profiles, for 64 initial orientations (uniformly distributed), and for 4 drop points at the corners of an horizontal 4×4 square. Geometric data-files, corresponding to field measures, are also included for the block shapes and the terrain topology. They are both obtained by photogrammetry. 
+This repository contains experimental and simulation data on rock boulder releases conducted in an open-pit mine in Authume (France), using a shovel from two distinct release positions. The tests were carried out within the framework of the French national project [C2ROP](https://www.c2rop.fr).
 
-The data is the basis for the original paper by [Garcia *et al*.](#references) 
-Both datasets from simulations or experiments can be used by researchers of the field to benchmark their own trajectory analysis tools and/or approaches. The data sets provided would be valuable for comparative study where the actual shape of the boulders (potentially non-convex) is of concern in rockfall forecasting.
 
+## Abstract
 
-# Experiments
 
+We provide experimental and simulation data on rock boulder releases conducted in an open-pit mine in Authume (France). The dataset served as the basis for the original paper by Garcia et al. (2022). The first path of propagation (profile) features a relief in the form of stairs, with platforms with a rather hard substratum (stabilized ground). The second profile presents a slightly curved corridor on a rather soft substratum. The boulder's end points (_i.e._, the stop positions) are made available together with their masses and bounding box sizes. In addition, the Digital Terrain Model, reconstructed from Lidar cloud of points in the form of a STL model, is provided together with a zoning of the type of substratum. Three boulder shapes have been reconstructed in 3D by means of the stereo-photogrammetry technique (their respective point clouds are also provided), and some forecasts from discrete element simulations using the code Rockable are provided so that other research teams can compare them with their own predictions.
 
-### The site of Authume quarry: context and experimental procedures
 
-[Photos site + location in France + context C2ROP]
+## Use cases for this dataset?
 
 
+- The experimental datasets are valuable for developing and improving numerical tools used on rockfall mitigation
+- They provide real-world measurements to validate and refine rockfall simulation models based on trajectory paths and end points
+- The dataset enables researchers to test the accuracy of predictive algorithms and reduce reliance on theoretical assumptions
+- This empirical foundation enhances the reliability of risk assessments and standardizes comparisons across studies
+- The data transform abstract models into practical, evidence-based tools for rockfall mitigation
 
-| ![](Photographs/DropPointsPhotographs.png) |
-|:--|
-| **Figure x**. xxx  |
 
-[Two drop points P1 and P2]
+## Data description
 
-The rock blocks were extracted from the Authume quarry. Their volumes where selected in the range 0.1 and 0.75&nbsp;m³ (approximatively), and then weighted using a wire mesh basket connected to a piezoresistive force sensor (Chatillon SLC10000, accuracy ±20&nbsp;kg). The weighing procedure consisted of pulling the load cell with the crane of the power shovel (it can be seen in some photographs above, at the drop points).
 
+The data are organized into three main categories: field data, 3D-reconstructed models, and simulated datasets.
 
 
-[Additional pictures are added in order to help operator’s subjectiveness (concerning the ground nature like softness/stiffness). Figure 1 shows a group of people close to the propagation profile P2. This image aims to provide the reader’s perception of the ground roughness, which is necessary to determine dissipative parameters. This determination relies only on a visual inspection conducted by the C2ROP organization, which is mentioned in the original paper. No characterization of the material was performed or provided.]
+### FIELD DATA
 
-ICI Photos sols
 
-### Boulders and their deposite positions
+#### Measured block-endpoints
 
-The data files for the stop positions of the released boulders are named `EXP_endpoints/endpoints_P1.txt` (41 boulders) and `EXP_endpoints/endpoints_P2.txt` (48 boulders, the boulder at line #xx is the one with shape SP3A).
-They are ASCII text files where the meaning of each column is described in the following table.  
 
-| Column # | Description              |
-|:--------:|:-------------------------|
-| 1        | $x$ position (m)         |
-| 2        | $y$ position (m)         |
-| 3        | $z$ position (m)         |
-| 4        | mass of the boulder (kg) |
-| 5        | $L_1$ (m)                |
-| 5        | $L_2$ (m)                |
-| 5        | $L_3$ (m)                |
+The folder `EXP_endpoints/` contains data from experimental stop-points for 89 blocks released over two profiles:
 
-In this dataset, the lengths $L_1$, $L_2$ and $L_3$ (with $L_1 \geq L_2 \geq L_3$), which define the bounding parallelogram that fits closely the bouder, where measures by different operators (see photograph below). The accuraty of these lengths is thus estimated at ±10&nbsp;cm. 
+- `Endpoints_P1.txt`: 41 boulders on profile P1
+- `Endpoints_P2.txt`: 48 boulders on profile P2 (boulder at line #37 is the one with shape SP3A used for simulations)
 
-| ![](Photographs/boulder89.png) |
-|:--|
-| **Figure x**. xxx  |
 
-The block 89, shown in this photograph, is actually the only one that has been employed in both a rockfall test and in the the simulations presented below. Notice that the positions provided in the deposit datasets are expressed in the same cartesian framework that the one used in the simulation datasets. 
+These are space-delimited text files (_i.e._, CSV files, but using spaces instead of commas or semicolons as separators) with the following columns:
 
 
-# Single rockfall simulations (Discrete Element Method)
+| Column | Description |
+|--------|-------------|
+| 1      | Xstop [m]   |
+| 2      | Ystop [m]   |
+| 3      | Zstop [m]   |
+| 4      | mass [kg]   |
+| 5      | L1 [m]      |
+| 6      | L2 [m]      |
+| 7      | L3 [m]      |
 
+where L1, L2, and L3 (with L1 ≥ L2 ≥ L3) represent the approximate dimensions of the best-fitted bounding box of the rock block.
 
-[show photographs and top viewed map with colors, and the framework]
 
-| ![Terrain with zones and framework](Figures/Terrain_zones_framework.png) |
-|:--|
-| **Figure x**. xxx  |
+#### Field photographs
 
-### Geometries
 
-##### Digital terrain
+Additional photographs are included to help future operators assess subjective qualities of the ground, such as softness or roughness. These photographs are essential for estimating dissipative parameters in rockfall models.
 
-The terrain topology is provided in the form of `.stl` ASCII files, and also in a more raw format of cloud points (`.xyz` ASCII files) in the folders `Geometries/STL` and `Geometries/Point_cloud`, respectively.
+![](Photographs/DropPointsPhotographs.png)
+> _Drop points and propagation profiles P1 and P2 in the Authume quarry (France)._
 
-Any position in the dataset of this repository is a cartesian coordinate expressed in the same framework. [says y is upwards, ref to top view]
+![](Photographs/boulder89.png)
+> _Boulder numbered 89 during the experimental campaign. It was used in both experimental tests and simulations._
 
-The limits of the digital terrain, to the accuracy of one metre, are given in the following table.
 
-|         | min | max |
-|---------|-----|-----|
-| $x$ (m) | -8  | 109 |
-| $y$ (m) | 148 | 215 |
-| $z$ (m) | 217 | 428 |
+### 3D-RECONSTRUCTED MODELS
 
-There are actually 3 `.stl` files for the terrain topology; they can be merged border-to-border. They correspond to 3 zones of different types of subtratum. In the figure above, the blue zones are vegetated slopes, the gray zones correspond to hard surfaces (vertical rock walls and the horizontal sturdy soil), and the red zones are rocky slopes. 
 
-To construct the Digital Terrain Model (DTM) of the propagation paths and stop zones of the quarry, a cloud of 3D points was first acquired by the photogrammetry technique, using aerial photographs shooted by a drone with 3-axis gimbal 4K camera ([DJI Mavic Pro](https://en.wikipedia.org/wiki/Mavic_(unmanned_aerial_vehicle)#Pro_series)). This model was provided by the IMSRN company.
+A global shift can be applied to align all terrain-assessed coordinates into a common reference GPS coordinate system:
 
-A dense point cloud was provided by the C2ROP organization (see [ARTICLELANDSLIDESXX](xxx)) and aligned with Geographic Information System (GIS)  database to complete some missed areas (such as the bottom ground of the quarry) that were not totally covered by the drone. 
-The mesh was then generated and simplified by degradation using the software MeshLab by targetting a minimal point spacing of 0.5 m. 
+- $\Delta x = -888600$ m
+- $\Delta y = -6671300$ m  
+- $\Delta z = 0$ m
 
-| ![](Figures/DTM_construction.png) |
-|:--|
-| **Figure x**. From left to right: dense cloud of points from C2ROP organization; alignement of the point cloud with GIS data; the point cloud provided by IMSRN compagny (nearly 9 points per squared meter); Resulting Mesh. |
 
+#### Digital Terrain Model (DTM)
 
-##### Digital boulders
 
-[say how the digital blocks has been acquired and post-processed]
+The terrain topology is provided in the folder `Geometries/` in two formats:
 
-[Photogrammetry is a three-dimensional reconstruction of an object or a scene from photo acquisition, that are processed and correlated following specific protocols. An image acquisition protocol for a 3D object was used (Fig. XX). This method consists in moving around the object taking shots at every 15 degrees over 360. Distance and overlap ratios necessary to cover the object and provide a reliable model are established in (ref.TROCHON. For scaling purposes, two checkerboards of 60 cm × 60 cm are placed next to the boulder.]
+- `STL/` subfolder: ASCII STL files split into three files representing blue, gray, and red zones
+- `Point_cloud/` subfolder: Raw point clouds as ASCII text files
 
+The three STL files correspond to different types of substrata:
 
-| ![](Figures/block_construction.png) |
-|:--|
-| **Figure X**. (a) Top view showing camera locations around the object at each 15 degrees (3D protocol); (b) Some pictures from the data-set showing the rock boulder; (c) Point cloud obtained by photogrammety acquisition and reconstructed using Agisoft Photoscan (Metashape) (ref XX) and (d) Resulting mesh (TIN), reconstructed by applying the Delaunay triangulation from MeshLab (ref. XX). |
+- **Blue zones**: Vegetated slopes
+- **Gray zone**: Hard surfaces (vertical rock walls and horizontal sturdy soil)
+- **Red zone**: Rocky slope
 
-### Drop positions
+![](Figures/Terrain_zones_framework.png)
+> _Trajectories over the reconstructed terrain for profiles P1 and P2. Trajectory colors represent block velocities (red to yellow)._
 
-For profiles P1 and P2 -> drop positions
+The DTM was constructed using photogrammetry from aerial photographs taken by a drone (DJI Mavic Pro), provided by IMSRN company. A dense point cloud from C2ROP organization was used as reference for alignment and reconstruction of missed areas.
 
+<img src="Figures/Figure4a.png" alt="4a" width="24%" /> <img src="Figures/Figure4b.png" alt="4b" width="24%" /> <img src="Figures/Figure4c.png" alt="4c" width="24%" /> <img src="Figures/Figure4d.png" alt="4d" width="24%" />
+> _Processing of point clouds and mesh: (a) Dense point cloud from IMSRN, (b) Dense point cloud from C2ROP, (c) Alignment of acquisitions, (d) Reconstructed TIN mesh (0.5 m resolution)._
 
 
-### Trajectories
+#### Digital model of the boulders
 
-By means of discrete element simulations with the code [`Rockable`](https://richefeu.github.io/homepage-vrichefeu/tools/0000/01/02/rockable/),
-the four digital boulders have been released from 4 drop positions in each profile P1 and P2. This corresponds to 2×4×4 series of simulations for 64 initial orientations, evenly distributed in all possible orientations. [say they are quaternions in `Drop_conditions/orientations.txt`]
 
-A total of 2048 computed trajetories are organised according to the following tree structure in this repository: 
+Three boulder shapes were reconstructed using photogrammetry and used in simulations:
 
-`Trajectories/`<b style="background-color:Tomato;"> Profile </b>`/`<b style="background-color:DodgerBlue;"> Shape </b>`/`<b style="background-color:MediumSeaGreen;"> Drop\_position </b>`/`<b style="background-color:Violet;"> Orientation </b>`.txt` 
+- **SP1A**: Smallest volume
+- **SP2A** and **SP2B**: Same shape, different volumes
+- **SP3A**: Most elongated, used in experimental tests
 
-where <b style="background-color:Tomato;"> Profile </b> = {`P1`, `P2`}, <b style="background-color:DodgerBlue;"> Shape </b> = {`SP1A`, `SP2A`, `SP2B`, `SP3A`}, <b style="background-color:MediumSeaGreen;"> Drop\_position </b> = {`Drop_position_1`, `Drop_position_2`, `Drop_position_3`, `Drop_position_4`}, and <b style="background-color:Violet;"> Orientation </b> = `orientation_`[1-64].
+The reconstruction process involved:
 
+- Image acquisition at 15-degree intervals (360-degree rotation)
+- Use of 60 cm × 60 cm checkerboards for scaling
+- Point cloud generation with Agisoft Metashape
+- Mesh reconstruction via Delaunay triangulation using MeshLab
 
+<img src="Figures/Figure6.png" alt="Shapes" width="100%" /> 
+> _Shapes of blocks reconstructed by photogrammetry._ 
 
-[The trajectory files contain 20 seconds of simulated rockfall data and are not simply composed of spatial positions, but also give information about kinetic and rotational velocities, orientations, forces and momentum at each time step.]
+### SIMULATED DATASETS
 
+#### Drop Conditions
 
-The trajectory datasets are ASCII text files with the following columns:
+The folder `Drop_conditions/` contains:
 
-| Column # | Description                                      |
-|:--------:|:-------------------------------------------------|
-| 1        | Time from release (s)                            |
-| 2        | $x$ position (m)                                 |
-| 3        | $y$ position (m)                                 |
-| 4        | $z$ position (m)                                 |
-| 5        | $v_x$ velocity (m/s)                             |
-| 6        | $v_y$ velocity (m/s)                             |
-| 7        | $v_z$ velocity (m/s)                             |
-| 8        | $q_s$ scalar component of orientation quaternion |
-| 9        | $q_x$ vector component of orientation quaternion |
-| 10       | $q_y$ vector component of orientation quaternion |
-| 11       | $q_z$ vector component of orientation quaternion |
-| 12       | $\omega_x$ angular velocity (rad/s)              |
-| 13       | $\omega_y$ angular velocity (rad/s)              |
-| 14       | $\omega_z$ angular velocity (rad/s)              |
-| 15       | $F_x$ resultant force (N)                        |
-| 16       | $F_y$ resultant force (N)                        |
-| 17       | $F_z$ resultant force (N)                        |
-| 18       | $M_x$ resultant moment (Nm)                      |
-| 19       | $M_y$ resultant moment (Nm)                      |
-| 20       | $M_z$ resultant moment (Nm)                      |
+- `orientations.txt`: 64 initial orientations as normalized quaternions ($q_0$; $q_1$, $q_2$, $q_3$)
+- `positions_P1.xyz` and `positions_P2.xyz`: Drop positions for each profile
 
-[explain how to transform quaternion into Euler angles (or rotation matrix)]
-[](https://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles)
+#### Simulated Trajectories
 
-<div id="references"></div>
-# References
+Rockfall simulations were conducted using the [Rockable](https://github.com/richefeu/rockable) software. The folder `SIM_Trajectories/` contains 2048 computed trajectories organized as:
 
-* B. Garcia, P. Villard, V. Richefeu. D. Daudon, *Comparison of full-scale rockfall tests with 3D complex-shaped discrete element simulations*, Engineering Geology, In Press.
+`SIM_Trajectories/<Profile>/<Shape>/<Drop_position>/<Orientation>.txt`
 
-* F. Bourrier, D. Toe, B. Garcia, J. Baroth, S. Lambert (2021) *Experimental investigations on complex block propagation for the assessment of propagation models quality*, Landslides **18**, pp. 639-654
+where:
 
-* `Rockable`, a discret element method software, developped in Laboratoire 3SR, Université Grenoble Alpes, France. [Description of the software](https://richefeu.github.io/homepage-vrichefeu/tools/0000/01/02/rockable/)
+- Profile = {`P1`, `P2`}
+- Shape = {`SP1A`, `SP2A`, `SP2B`, `SP3A`}
+- Drop_position = {`Drop_position_1`, `Drop_position_2`, `Drop_position_3`, `Drop_position_4`}
+- Orientation = `orientation_[1-64]`
+
+Each trajectory file contains 19 seconds of simulated data (0.1 s intervals) with 20 columns:
+
+| Column | Description                                                   |
+|--------|---------------------------------------------------------------|
+| 1      | Time $t$ [s]                                                  |
+| 2-4    | Position ($x$, $y$, $z$) [m]                                  |
+| 5-7    | Translation velocity ($v_x$, $v_y$, $v_z$) [m/s]              |
+| 8-11   | Orientation quaternion ($q_0$; $q_1$, $q_2$, $q_3$) [-]       |
+| 12-14  | Angular velocity ($\omega_x$, $\omega_y$, $\omega_z$) [rad/s] |
+| 15-17  | Resultant force ($F_x$, $F_y$, $F_z$) [N]                     |
+| 18-20  | Resultant moment ($M_x$, $M_y$, $M_z$) [Nm]                   |
+
+
+## References
+
+- Garcia, B., Villard, P., Richefeu, V., Daudon, D. (2022) *Comparison of full-scale rockfall tests with 3D complex-shaped discrete element simulations*, Engineering Geology 310, 106855.
+- Bourrier, F., Toe, D., Garcia, B., Baroth, J., Lambert, S. (2021) *Experimental investigations on complex block propagation for the assessment of propagation models quality*, Landslides 18, pp. 639-654.
+- Trochon, M.L. (2012) *Analyse des méthodes photogrammétriques de corrélation d’images pour l’étude des ouvrages rocheux*, Institut National des Sciences Appliquées de Strasbourg.
+- Richefeu, V., et al. (2025) *Advanced strategies for discrete simulations with three-dimensional R-shapes in Rockable framework*, Computer Physics Communications.

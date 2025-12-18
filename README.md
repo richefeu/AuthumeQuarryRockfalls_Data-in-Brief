@@ -115,8 +115,10 @@ The reconstruction process involved:
 - Point cloud generation with Agisoft Metashape
 - Mesh reconstruction via Delaunay triangulation using MeshLab
 
+>
 > <img src="Figures/Figure6.png" alt="Shapes" width="100%" /> 
 > _Shapes of blocks reconstructed by photogrammetry._ 
+>
 
 ### SIMULATED DATASETS
 

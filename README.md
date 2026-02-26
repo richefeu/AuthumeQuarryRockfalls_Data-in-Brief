@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/549048354.svg)](https://doi.org/10.5281/zenodo.18791968)
+
 # Experimental and simulated datasets for 3D dynamic modeling of rockfalls: complex digital boulder and terrain geometries
 
 This repository contains experimental and simulation data on rock boulder releases conducted in an open-pit mine in Authume (France), using a shovel from two distinct release positions. The tests were carried out within the framework of the French national project [C2ROP](https://www.c2rop.fr).
